@@ -1,5 +1,6 @@
 import React from 'react';
 import ClassNames from "./SingleVenueCard.module.css";
+import StarRatings from 'react-star-ratings';
 
 const SingleVenueCard = props => {
     var eachVenueDetail = props.eachVenueDetail;
@@ -11,9 +12,15 @@ const SingleVenueCard = props => {
             <div className={ClassNames.dataContainer}>
                 <div className={ClassNames.VenueName}>{eachVenueDetail.Name}</div>
                 <div>Capacity: {eachVenueDetail.Capacity}</div>
-                <div style={{display: "flex",width:"100%",justifyContent:"space-between"}}>
+                <div style={{ display: "flex", width: "100%", justifyContent: "space-between" }}>
                     <div>{eachVenueDetail.AddressDetails.locality}</div>
-                    <div>Rating: {eachVenueDetail.Rating}</div>
+                    <div>
+                        <StarRatings
+                            rating={eachVenueDetail.Rating-0.5}
+                            starDimension="40px"
+                            starSpacing="2px"
+                            starDimension="12px"
+                        /></div>
                 </div>
             </div>
         </div>
